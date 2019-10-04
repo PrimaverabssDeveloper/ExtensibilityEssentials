@@ -1,0 +1,11 @@
+﻿This End-User License Agreement (EULA) is a legal agreement between you (either as an individual or on behalf of another entity) and PRIMAVERA BSS. 
+
+If you do not agree to all the terms of this license agreement, DO NOT INSTALL, USE OR COPY THE SOFTWARE.
+
+By using this extension or any content therein, you accept the terms and conditions below.
+
+The extension is property of PRIMAVERA BSS. All Rights Reserved.
+
+PRIMAVERA BSS reserves the right to modify the content of this extension at any time, without prior notice.
+
+PRIMAVERA BSS disclaims all responsibility for damages or problems that may arise from the improper use of this software.

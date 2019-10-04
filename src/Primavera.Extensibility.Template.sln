@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primavera.Extensibility.Template", "Primavera.Extensibility.Template\Primavera.Extensibility.Template.csproj", "{6F4DEFF7-DFDC-4F46-9428-D7C94D2117BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Primavera.Extensibility.Wizard", "Primavera.Extensibility.Wizard\Primavera.Extensibility.Wizard.csproj", "{2876B504-DAF8-4380-A7AE-31A710E3674E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Primavera.Extensibility.TemplateVB", "Primavera.Extensibility.TemplateVB\Primavera.Extensibility.TemplateVB.vbproj", "{44392816-3D75-45CD-89DC-707B3BC6A249}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F4DEFF7-DFDC-4F46-9428-D7C94D2117BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4DEFF7-DFDC-4F46-9428-D7C94D2117BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4DEFF7-DFDC-4F46-9428-D7C94D2117BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4DEFF7-DFDC-4F46-9428-D7C94D2117BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2876B504-DAF8-4380-A7AE-31A710E3674E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2876B504-DAF8-4380-A7AE-31A710E3674E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2876B504-DAF8-4380-A7AE-31A710E3674E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2876B504-DAF8-4380-A7AE-31A710E3674E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44392816-3D75-45CD-89DC-707B3BC6A249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44392816-3D75-45CD-89DC-707B3BC6A249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44392816-3D75-45CD-89DC-707B3BC6A249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44392816-3D75-45CD-89DC-707B3BC6A249}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10FCB036-BDF1-4B62-9066-AF3E11D280BA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.primaverabss.com/tfs/p.tec.erp
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Primavera.Extensibility.Template\\Primavera.Extensibility.Template.csproj
+		SccProjectName1 = Primavera.Extensibility.Template
+		SccLocalPath1 = Primavera.Extensibility.Template
+		SccProjectUniqueName2 = Primavera.Extensibility.TemplateVB\\Primavera.Extensibility.TemplateVB.vbproj
+		SccProjectName2 = Primavera.Extensibility.TemplateVB
+		SccLocalPath2 = Primavera.Extensibility.TemplateVB
+		SccProjectUniqueName3 = Primavera.Extensibility.Wizard\\Primavera.Extensibility.Wizard.csproj
+		SccProjectName3 = Primavera.Extensibility.Wizard
+		SccLocalPath3 = Primavera.Extensibility.Wizard
+	EndGlobalSection
+EndGlobal
