@@ -1,0 +1,6 @@
+C:\GitHub\_bin\ProjectTemplates\VisualBasic\1033\Primavera.Extensibility.TemplateVB.zip
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Debug\Primavera.Extensibility.TemplateVB.vbproj.CoreCompileInputs.cache
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Debug\VisualBasic\1033\Primavera.Extensibility.TemplateVB.zip
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Debug\Primavera.Extensibility.TemplateVB.dll
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Debug\Primavera.Extensibility.TemplateVB.pdb
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Debug\Primavera.Extensibility.TemplateVB.vbprojAssemblyReference.cache

@@ -1,0 +1,39 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>VisualBasic\1033\Primavera.Extensibility.TemplateVB</RelativePathOnDisk>
+    <TemplateFileName>Primavera.Extensibility.TemplateVB.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>ExtensibilityProject</Name>
+        <Description>A project for creating extensibility solutions to PRIMAVERA ERP 10.</Description>
+        <Icon>Primavera.Extensibility.png</Icon>
+        <ProjectType>VisualBasic</ProjectType>
+        <TemplateID>23995943-5588-4cba-bc09-1c31abf8a904</TemplateID>
+        <SortOrder>1000</SortOrder>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>ExtensibilityProject</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <RequiredFrameworkVersion>4.6</RequiredFrameworkVersion>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Project">
+    <RelativePathOnDisk>CSharp\1033\Primavera.Extensibility.Template</RelativePathOnDisk>
+    <TemplateFileName>Primavera.Extensibility.Template.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <Name>ExtensibilityProject</Name>
+        <Description>A project for creating extensibility solutions to PRIMAVERA ERP 10.</Description>
+        <Icon>Primavera.Extensibility.png</Icon>
+        <ProjectType>CSharp</ProjectType>
+        <RequiredFrameworkVersion>4.6</RequiredFrameworkVersion>
+        <SortOrder>1000</SortOrder>
+        <TemplateID>c263bc6e-f7b5-46eb-bb82-e276f3a3f531</TemplateID>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>ExtensibilityProject</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

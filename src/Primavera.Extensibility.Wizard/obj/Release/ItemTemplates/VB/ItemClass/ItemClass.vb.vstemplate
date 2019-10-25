@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Primavera Custom Class</Name>
+    <Description>Use this template to add a new PEX entity class to your project.</Description>
+    <Icon>__TemplateIcon.ico</Icon>
+    <TemplateID>176927F9-D994-4A8E-AF33-98A782E382AC</TemplateID>
+    <SortOrder>10</SortOrder>
+    <DefaultName>PriClass.vb</DefaultName>
+    <ProjectType>VisualBasic</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Linq</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Threading.Tasks</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.vb" ReplaceParameters="true">PriClass.vb</ProjectItem>
+    <CustomParameters>  
+    	<CustomParameter Name="$customclass$" Value="$safeitemrootname$"/>  
+    </CustomParameters>  
+  </TemplateContent>
+      <WizardExtension>
+    <Assembly>Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=11cd844aca152173</Assembly>
+    <FullClassName>Primavera.Extensibility.Wizard.PRIExtensibility</FullClassName>
+  </WizardExtension>
+</VSTemplate>
