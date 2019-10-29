@@ -15,9 +15,7 @@ namespace Primavera.Extensibility.Wizard
     {
         #region private properties
 
-        private string Module { get; set; }
-        private string ModuleType { get; set; }
-        private string ClassName { get; set; }
+        private MyTreeNode SelectedNode { get; set; }
         private string Name { get; set; }
 
         #endregion
@@ -114,33 +112,26 @@ namespace Primavera.Extensibility.Wizard
 
                     foreach (MyTreeNode type in selectedTypes)
                     {
-                        string[] namespaceParts = type.Namespace.Split('.');
+                        this.SelectedNode = type;
 
-                        if (namespaceParts.Length == 4)
+                        ProjectItem rootFolder = project.ProjectItems.Cast<ProjectItem>()
+                                    .FirstOrDefault(i => i.Name == type.Module) ?? project.ProjectItems.AddFolder(type.Module);
+
+                        // Add the module reference.
+                        WizardHelper.AddModuleReference(project, "Primavera.Extensibility." + type.Module);
+
+                        // Add dependencies to the select modules.
+                        WizardHelper.AddDependenciesReference(project, type.Module);
+
+                        switch (type.ModuleType)
                         {
-                            this.Module = namespaceParts[2];
-                            this.ModuleType = namespaceParts[3];
-                            this.ClassName = type.NodeName;
+                            case "Editors":
+                                rootFolder.ProjectItems.AddFromTemplate(itemPath, "Ui" + type.ClassName + fileExtension);
+                                break;
 
-                            ProjectItem rootFolder = project.ProjectItems.Cast<ProjectItem>()
-                                        .FirstOrDefault(i => i.Name == this.Module) ?? project.ProjectItems.AddFolder(this.Module);
-
-                            // Add the module reference.
-                            WizardHelper.AddModuleReference(project, "Primavera.Extensibility." + this.Module);
-
-                            // Add dependencies to the select modules.
-                            WizardHelper.AddDependenciesReference(project, this.Module);
-
-                            switch (this.ModuleType)
-                            {
-                                case "Editors":
-                                    rootFolder.ProjectItems.AddFromTemplate(itemPath, "Ui" + this.ClassName + fileExtension);
-                                    break;
-
-                                case "Services":
-                                    rootFolder.ProjectItems.AddFromTemplate(itemPath, "Api" + this.ClassName + fileExtension);
-                                    break;
-                            }
+                            case "Services":
+                                rootFolder.ProjectItems.AddFromTemplate(itemPath, "Api" + type.ClassName + fileExtension);
+                                break;
                         }
                     }
                 }
@@ -158,27 +149,18 @@ namespace Primavera.Extensibility.Wizard
         {
             foreach (MyTreeNode type in selectedTypes)
             {
-                string[] namespaceParts = type.Namespace.Split('.');
-
-                if (namespaceParts.Length == 4)
+                if (type.Name == "PriCustomTab.cs" || type.Name == "PriCustomTab.vb")
                 {
-                    this.Module = namespaceParts[2];
-                    this.ModuleType = namespaceParts[3];
-                    this.ClassName = type.NodeName;
-
-                    if (this.Name == "PriCustomTab.cs" || this.Name == "PriCustomTab.vb")
-                    {
-                        WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomTab");
-                    }
-
-                    // Add the module reference..,
-                    WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility." + this.Module);
-
-                    ProjectItemsEvents_ItemAdded(projectItem);
-
-                    // Add dependencies to the select modules.
-                    WizardHelper.AddDependenciesReference(projectItem.ContainingProject, this.Module);
+                    WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomTab");
                 }
+
+                // Add the module reference..,
+                WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility." + type.Module);
+
+                ProjectItemsEvents_ItemAdded(projectItem);
+
+                // Add dependencies to the select modules.
+                WizardHelper.AddDependenciesReference(projectItem.ContainingProject, type.Module);
             }
         }
 
@@ -222,9 +204,9 @@ namespace Primavera.Extensibility.Wizard
             {
                 string readFile = File.ReadAllText(itemPath);
 
-                readFile = readFile.Replace("$PriInheritsFrom$", this.ClassName);
-                readFile = readFile.Replace("$PriModule$", this.Module);
-                readFile = readFile.Replace("$ModuleType$", this.ModuleType);
+                readFile = readFile.Replace("$PriInheritsFrom$", this.SelectedNode.ClassName);
+                readFile = readFile.Replace("$PriModule$", this.SelectedNode.Module);
+                readFile = readFile.Replace("$ModuleType$", this.SelectedNode.ModuleType);
 
                 File.WriteAllText(itemPath, readFile);
             }

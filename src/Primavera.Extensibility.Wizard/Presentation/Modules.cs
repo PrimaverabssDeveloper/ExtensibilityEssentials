@@ -72,24 +72,30 @@ namespace Primavera.Extensibility
 
                     TreeNode parent = trw.Nodes.Add(trimName);
 
-                    MyTreeNode childNodeEditors = new MyTreeNode()
-                    {
-                        Text = "Editors",
-                        IsDirectory = true
-                    };
+                    MyTreeNode childNodeEditors = new MyTreeNode(){Text = "Editors"};
                     parent.Nodes.Add(childNodeEditors);
 
-                    MyTreeNode childNodeServices = new MyTreeNode()
-                    {
-                        Text = "Services",
-                        IsDirectory = true
-                    };
+                    MyTreeNode childNodeServices = new MyTreeNode(){Text = "Services"};
                     parent.Nodes.Add(childNodeServices);
 
                     Assembly assembly = Assembly.LoadFrom(file);
 
                     foreach (var exportedType in assembly.GetExportedTypes())
                     {
+                        MyTreeNode node = null;
+                        string[] namespaceParts = exportedType.Namespace.Split('.');
+
+                        if (namespaceParts.Length == 4)
+                        {
+                            node = new MyTreeNode()
+                            {
+                                Module = namespaceParts[2],
+                                ModuleType = namespaceParts[3],
+                                ClassName = exportedType.Name,
+                                Text = exportedType.Name
+                            };
+                        }
+
                         if (trimName == "ElectronicDataInterchange" || trimName == "Platform")
                         {
                             parent.Nodes.Remove(childNodeEditors);
@@ -97,28 +103,15 @@ namespace Primavera.Extensibility
 
                         if (exportedType.Namespace.ToLower().EndsWith("editors"))
                         {
-                            MyTreeNode node = new MyTreeNode()
-                            {
-                                Text = exportedType.Name,
-                                NodeName = exportedType.Name,
-                                Namespace = exportedType.Namespace,
-                                IsDirectory= false
-                            };
                             childNodeEditors.Nodes.Add(node);
                             allNodes.Add(node);
                         }
-
+                        else
                         if (exportedType.Namespace.ToLower().EndsWith("services"))
                         {
-                            MyTreeNode node = new MyTreeNode()
-                            {
-                                Text = exportedType.Name,
-                                NodeName = exportedType.Name,
-                                Namespace = exportedType.Namespace,
-                                IsDirectory = false
-                            };
+                            
                             childNodeServices.Nodes.Add(node);
-                            allNodes.Add(node);
+                            allNodes.Add(node);                            
                         }
                     }
                 }
