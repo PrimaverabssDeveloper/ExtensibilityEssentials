@@ -16,6 +16,7 @@ C:\GitHub\_bin\Primavera.Extensibility.Wizard.pdb
 C:\GitHub\_bin\Primavera.Extensibility.Wizard.pkgdef
 C:\GitHub\_bin\Primavera.Extensibility.Wizard.vsix
 C:\GitHub\_bin\extension.vsixmanifest
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\Primavera.Extensibility.Wizard.csprojAssemblyReference.cache
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\VSPackage.resources
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\Primavera.Extensibility.Wizard.Properties.Resources.resources
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\Primavera.Extensibility.Modules.resources
@@ -71,4 +72,3 @@ C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\P
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\ProjectTemplates\CSharp\1033\Primavera.Extensibility.Template\AssemblyInfo.cs
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\ProjectTemplates\CSharp\1033\Primavera.Extensibility.Template\Primavera.Extensibility.Template.vstemplate
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\templateFiles.json
-C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Wizard\obj\Debug\Primavera.Extensibility.Wizard.csprojAssemblyReference.cache

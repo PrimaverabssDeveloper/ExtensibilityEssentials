@@ -32,7 +32,7 @@
     </CustomParameters>  
   </TemplateContent>
     <WizardExtension>
-    <Assembly>Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=11cd844aca152173</Assembly>
+    <Assembly>Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=33086db60a481256</Assembly>
     <FullClassName>Primavera.Extensibility.Wizard.PRIExtensibility</FullClassName>
   </WizardExtension>
 </VSTemplate>

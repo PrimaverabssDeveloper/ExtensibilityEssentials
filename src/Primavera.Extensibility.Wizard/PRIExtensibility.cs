@@ -44,6 +44,7 @@ namespace Primavera.Extensibility.Wizard
                 string validationErrors = string.Empty;
                 string itemPath = null;
                 string fileExtension = null;
+
                 EnvDTE80.Events2 objEvents2;
                 EnvDTE80.Solution2 solution = project.DTE.Solution as EnvDTE80.Solution2;
 
