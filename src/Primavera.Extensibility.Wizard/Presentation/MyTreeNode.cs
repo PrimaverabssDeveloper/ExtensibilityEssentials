@@ -6,8 +6,10 @@ namespace Primavera.Extensibility
     {
         public string Namespace { get; set; }
 
-        public string NodeName { get; set; }
+        public string Module { get; set; }
 
-        public bool IsDirectory { get; set; }
+        public string ModuleType { get; set; }
+
+        public string ClassName { get; set; }
     }
 }
