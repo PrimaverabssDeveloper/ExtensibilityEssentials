@@ -13,7 +13,7 @@ namespace Primavera.Extensibility.Wizard
 
         #region public methods
         // This method is called before opening any item that   
-        // has the OpenInEditor attribute.  
+        // has the OpenInEditor attributes.  
         public void BeforeOpeningFile(ProjectItem projectItem)
         {
         }
