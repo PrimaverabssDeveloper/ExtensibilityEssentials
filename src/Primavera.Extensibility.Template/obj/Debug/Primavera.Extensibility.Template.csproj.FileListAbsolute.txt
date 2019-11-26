@@ -8,3 +8,4 @@ C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug
 C:\GitHub\ExtensibilityEssentials\_bin\ProjectTemplates\CSharp\1033\Primavera.Extensibility.Template.zip
 C:\GitHub\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.dll
 C:\GitHub\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.pdb
+C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.csprojAssemblyReference.cache

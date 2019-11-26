@@ -13,8 +13,9 @@ namespace Primavera.Extensibility
     public partial class Modules : Form
     {
         #region private variables
-        private List<MyTreeNode> allNodes = new List<MyTreeNode>();
-        private List<TreeNode> NodesThatMatch = new List<TreeNode>();
+        private List<MyTreeNode> childNodes = new List<MyTreeNode>();
+        private List<MyTreeNode> rootNodes = new List<MyTreeNode>();
+
         #endregion
 
         #region internal properties
@@ -22,7 +23,7 @@ namespace Primavera.Extensibility
         {
             get
             {
-                return allNodes.Where(t => t.Checked).ToList();
+                return childNodes.Where(t => t.Checked).ToList();
             }
         }
         #endregion
@@ -32,9 +33,10 @@ namespace Primavera.Extensibility
         {
             InitializeComponent();
             LoadAssembly();
+            LoadTreeView(childNodes);
         }
 
-        public void LoadAssembly()
+        private void LoadAssembly()
         {
             string InstallFolder = GeneralOptions.Instance.Path;;
 
@@ -68,21 +70,19 @@ namespace Primavera.Extensibility
                     !fileName.ToLower().EndsWith("integration") &&
                     !fileName.ToLower().EndsWith("patterns"))
                 {
-                    string trimName = fileName.Remove(0, 24);
+                    string moduleRootnode = fileName.Remove(0, 24);
 
-                    TreeNode parent = trw.Nodes.Add(trimName);
+                    // Build the root nodes collection
+                    rootNodes.Add(new MyTreeNode() { Text = moduleRootnode });
 
-                    MyTreeNode childNodeEditors = new MyTreeNode(){Text = "Editors"};
-                    parent.Nodes.Add(childNodeEditors);
-
-                    MyTreeNode childNodeServices = new MyTreeNode(){Text = "Services"};
-                    parent.Nodes.Add(childNodeServices);
-
+                    // MEF load assemblies
                     Assembly assembly = Assembly.LoadFrom(file);
 
+                    // Build the child nodes collection
                     foreach (var exportedType in assembly.GetExportedTypes())
                     {
                         MyTreeNode node = null;
+
                         string[] namespaceParts = exportedType.Namespace.Split('.');
 
                         if (namespaceParts.Length == 4)
@@ -92,26 +92,46 @@ namespace Primavera.Extensibility
                                 Module = namespaceParts[2],
                                 ModuleType = namespaceParts[3],
                                 ClassName = exportedType.Name,
-                                Text = exportedType.Name
+                                Text = exportedType.Name,
+                                ParentNode = moduleRootnode,
+                                Namespace = exportedType.Namespace
                             };
                         }
 
-                        if (trimName == "ElectronicDataInterchange" || trimName == "Platform")
+                        childNodes.Add(node);
+                    }
+                }
+            }
+        }
+
+        private void LoadTreeView(List<MyTreeNode> myTreeNodes)
+        {
+            foreach (MyTreeNode node in rootNodes)
+            {
+                TreeNode parent = trw.Nodes.Add(node.Text);
+
+                MyTreeNode childNodeEditors = new MyTreeNode() { Text = "Editors" };
+                parent.Nodes.Add(childNodeEditors);
+
+                MyTreeNode childNodeServices = new MyTreeNode() { Text = "Services" };
+                parent.Nodes.Add(childNodeServices);
+
+                foreach( MyTreeNode childNode in myTreeNodes)
+                {
+                    if (childNode != null && childNode.Module.ToLower() == node.Text.ToLower())
+                    {
+                        if (node.Text == "ElectronicDataInterchange" || node.Text == "Platform")
                         {
                             parent.Nodes.Remove(childNodeEditors);
                         }
 
-                        if (exportedType.Namespace.ToLower().EndsWith("editors"))
+                        if (childNode.Namespace.ToLower().EndsWith("editors"))
                         {
-                            childNodeEditors.Nodes.Add(node);
-                            allNodes.Add(node);
+                            childNodeEditors.Nodes.Add(childNode);
                         }
-                        else
-                        if (exportedType.Namespace.ToLower().EndsWith("services"))
+                        else if (childNode.Namespace.ToLower().EndsWith("services"))
                         {
-                            
-                            childNodeServices.Nodes.Add(node);
-                            allNodes.Add(node);                            
+                            childNodeServices.Nodes.Add(childNode);
                         }
                     }
                 }
@@ -148,5 +168,36 @@ namespace Primavera.Extensibility
             }
         }
         #endregion
+
+        private void txtfilter_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtfilter_Leave(object sender, EventArgs e)
+        {
+            this.trw.BeginUpdate();
+            this.trw.Nodes.Clear();
+
+            if (txtfilter.Text != string.Empty)
+            {
+                List<MyTreeNode> filterTreeNodes = new List<MyTreeNode>();
+
+                foreach (MyTreeNode childNode in childNodes)
+                {
+                    if (childNode != null && childNode.Text.Contains(this.txtfilter.Text))
+                    {
+                        filterTreeNodes.Add((MyTreeNode)childNode.Clone());
+                    }
+                }
+                LoadTreeView(filterTreeNodes);
+            }
+            else
+            {
+                LoadTreeView(childNodes);
+            }
+
+            this.trw.EndUpdate();
+        }
     }
 }
