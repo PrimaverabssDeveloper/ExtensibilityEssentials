@@ -104,6 +104,10 @@ namespace Primavera.Extensibility
             }
         }
 
+        /// <summary>
+        /// Build the modules tree using the active nodes collection.
+        /// </summary>
+        /// <param name="myTreeNodes">Active node colecction.</param>
         private void LoadTreeView(List<MyTreeNode> myTreeNodes)
         {
             foreach (MyTreeNode node in rootNodes)
@@ -135,11 +139,19 @@ namespace Primavera.Extensibility
                         }
                     }
                 }
+
+                // Remove modules without child nodes in services or editors.
+                if (childNodeEditors.Nodes.Count ==0 && childNodeServices.Nodes.Count == 0)
+                {
+                    parent.Nodes.Remove(parent);
+                }
+
             }
         }
         #endregion
 
         #region private methods
+
         // Updates all child tree nodes recursively.
         private void CheckAllChildNodes(TreeNode treeNode, bool nodeChecked)
         {
@@ -151,6 +163,49 @@ namespace Primavera.Extensibility
                     // If the current node has child nodes, call the CheckAllChildsNodes method recursively.
                     this.CheckAllChildNodes(node, nodeChecked);
                 }
+            }
+        }
+
+        private void FilterNodes()
+        {
+            this.trw.BeginUpdate();
+            this.trw.Nodes.Clear();
+
+            if (txtfilter.Text != string.Empty)
+            {
+                List<MyTreeNode> filterTreeNodes = new List<MyTreeNode>();
+
+                foreach (MyTreeNode childNode in childNodes)
+                {
+                    if (childNode != null && childNode.Text.ToLower().Contains(this.txtfilter.Text.ToLower()))
+                    {
+                        filterTreeNodes.Add(childNode);
+                    }
+                }
+                LoadTreeView(filterTreeNodes);
+            }
+            else
+            {
+                LoadTreeView(childNodes);
+            }
+
+            this.trw.EndUpdate();
+        }
+
+        #endregion
+
+        #region events
+
+        private void txtfilter_Leave(object sender, EventArgs e)
+        {
+            this.FilterNodes();
+        }
+
+        private void txtfilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                this.FilterNodes();
             }
         }
 
@@ -167,37 +222,7 @@ namespace Primavera.Extensibility
                 }
             }
         }
+
         #endregion
-
-        private void txtfilter_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtfilter_Leave(object sender, EventArgs e)
-        {
-            this.trw.BeginUpdate();
-            this.trw.Nodes.Clear();
-
-            if (txtfilter.Text != string.Empty)
-            {
-                List<MyTreeNode> filterTreeNodes = new List<MyTreeNode>();
-
-                foreach (MyTreeNode childNode in childNodes)
-                {
-                    if (childNode != null && childNode.Text.Contains(this.txtfilter.Text))
-                    {
-                        filterTreeNodes.Add((MyTreeNode)childNode.Clone());
-                    }
-                }
-                LoadTreeView(filterTreeNodes);
-            }
-            else
-            {
-                LoadTreeView(childNodes);
-            }
-
-            this.trw.EndUpdate();
-        }
     }
 }

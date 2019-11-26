@@ -37,11 +37,13 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_ok = new System.Windows.Forms.Button();
             this.txtfilter = new System.Windows.Forms.TextBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -137,8 +139,18 @@
             this.txtfilter.Name = "txtfilter";
             this.txtfilter.Size = new System.Drawing.Size(459, 20);
             this.txtfilter.TabIndex = 12;
-            this.txtfilter.TextChanged += new System.EventHandler(this.txtfilter_TextChanged);
+            this.txtfilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfilter_KeyPress);
             this.txtfilter.Leave += new System.EventHandler(this.txtfilter_Leave);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(17, 194);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(83, 17);
+            this.radioButton5.TabIndex = 5;
+            this.radioButton5.Text = "SDK Project";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // Modules
             // 
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.TextBox txtfilter;
+        private System.Windows.Forms.RadioButton radioButton5;
     }
 }
