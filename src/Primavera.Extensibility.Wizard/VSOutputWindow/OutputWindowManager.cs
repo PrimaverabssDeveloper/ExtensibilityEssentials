@@ -21,7 +21,7 @@ namespace Primavera.Extensibility.Wizard
 
             if (customPane == null)
             {
-                string customTitle = "PRIMAVERA";
+                string customTitle = "PRIMAVERA Extensibility Essentials";
                 outWindow.CreatePane(ref customGuid, customTitle, 1, 1);
                 outWindow.GetPane(ref customGuid, out customPane);
             }

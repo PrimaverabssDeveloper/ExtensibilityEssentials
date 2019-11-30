@@ -149,7 +149,9 @@ namespace Primavera.Extensibility.Wizard
         {
             foreach (MyTreeNode type in selectedTypes)
             {
-                if (type.Name == "PriCustomTab.cs" || type.Name == "PriCustomTab.vb")
+                this.SelectedNode = type;
+
+                if (this.Name == "PriCustomTab.cs" || this.Name == "PriCustomTab.vb")
                 {
                     WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomTab");
                 }

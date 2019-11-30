@@ -11,5 +11,7 @@ namespace Primavera.Extensibility
         public string ModuleType { get; set; }
 
         public string ClassName { get; set; }
+
+        public string ParentNode { get; set; }
     }
 }
