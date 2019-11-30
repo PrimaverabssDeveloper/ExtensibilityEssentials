@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Helper\WizardHelper.cs" />
     <Compile Include="Helper\DependenciesDictionary.cs" />
+    <Compile Include="ProjectTypes\ExtensibilityType.cs" />
     <Compile Include="VSOptions\OptionsValidator.cs" />
     <Compile Include="VSOutputWindow\OutputWindowMessagesType.cs" />
     <Compile Include="VSOutputWindow\OutputWindowManager.cs" />

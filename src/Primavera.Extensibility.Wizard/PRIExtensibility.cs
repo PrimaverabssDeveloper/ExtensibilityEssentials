@@ -170,6 +170,7 @@ namespace Primavera.Extensibility.Wizard
         public void RunFinished()
         {
         }
+
         public void RunStarted(object automationObject,
             Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
@@ -179,6 +180,10 @@ namespace Primavera.Extensibility.Wizard
                 if (modulesForm.ShowDialog() == DialogResult.OK)
                 {
                     selectedTypes = modulesForm.SelectedTypes.ToList();
+                }
+                else
+                {
+                    throw new WizardCancelledException();
                 }
             }
             
