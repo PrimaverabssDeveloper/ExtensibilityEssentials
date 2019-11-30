@@ -13,6 +13,7 @@ namespace Primavera.Extensibility
     public partial class Modules : Form
     {
         #region private variables
+
         private List<MyTreeNode> childNodes = new List<MyTreeNode>();
         private List<MyTreeNode> rootNodes = new List<MyTreeNode>();
 
@@ -23,7 +24,7 @@ namespace Primavera.Extensibility
         {
             get
             {
-                return childNodes.Where(t => t.Checked).ToList();
+                return childNodes.Where(n => n!= null && n.Checked).ToList();
             }
         }
         #endregion
@@ -32,7 +33,9 @@ namespace Primavera.Extensibility
         public Modules()
         {
             InitializeComponent();
+
             LoadAssembly();
+
             LoadTreeView(childNodes);
         }
 
