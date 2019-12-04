@@ -26,7 +26,8 @@ namespace Primavera.Extensibility
                     { "ContractManagement", "PcmBEXXX;IPcmBSXXX" },
                     { "EquipmentsFixedAssets", "EapBEXXX;IEapBSXXX" },
                     { "PayablesReceivables", "CctBEXXX;ICctBSXXX" },
-                    { "HumanResources", "RhpBEXXX;IRhpBSXXX" }
+                    { "HumanResources", "RhpBEXXX;IRhpBSXXX" },
+                    { "Production","GprBEXXX;IGprBSXXX" }
                 };
             }
         }
