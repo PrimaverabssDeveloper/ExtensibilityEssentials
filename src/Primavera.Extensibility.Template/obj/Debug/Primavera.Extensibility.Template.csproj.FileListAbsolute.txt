@@ -9,3 +9,11 @@ C:\GitHub\ExtensibilityEssentials\_bin\ProjectTemplates\CSharp\1033\Primavera.Ex
 C:\GitHub\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.dll
 C:\GitHub\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.pdb
 C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.csprojAssemblyReference.cache
+D:\ExtensibilityEssentials\_bin\ProjectTemplates\CSharp\1033\Primavera.Extensibility.Template.zip
+D:\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.dll
+D:\ExtensibilityEssentials\_bin\Primavera.Extensibility.Template.pdb
+D:\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.csproj.CoreCompileInputs.cache
+D:\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\CSharp\1033\Primavera.Extensibility.Template.zip
+D:\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.dll
+D:\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.pdb
+D:\ExtensibilityEssentials\src\Primavera.Extensibility.Template\obj\Debug\Primavera.Extensibility.Template.csprojAssemblyReference.cache
