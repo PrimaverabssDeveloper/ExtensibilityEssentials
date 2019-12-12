@@ -13,6 +13,9 @@ nupkg/
 *.user
 *.userosscache
 *.sln.docstates
+bin
+obj
+packages
 
 # Build results
 [Dd]ebug/
