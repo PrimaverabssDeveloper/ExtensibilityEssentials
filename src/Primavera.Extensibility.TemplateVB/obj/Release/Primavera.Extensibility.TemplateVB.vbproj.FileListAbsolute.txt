@@ -1,1 +1,0 @@
-C:\GitHub\ExtensibilityEssentials\src\Primavera.Extensibility.TemplateVB\obj\Release\Primavera.Extensibility.TemplateVB.vbproj.CoreCompileInputs.cache
