@@ -20,7 +20,7 @@
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" />
-    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Primavera.Extensibility.Wizard.dll" AssemblyName="Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33086db60a481256" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="Primavera.Extensibility.Wizard.dll" AssemblyName="Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173" />
     <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Primavera.Extensibility.Wizard.pkgdef" />
     <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="ItemTemplates" />
   </Assets>
