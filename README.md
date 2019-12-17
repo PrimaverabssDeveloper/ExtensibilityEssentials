@@ -9,6 +9,7 @@ By default, this tool is configured to load assemblies from the  default PRIMAVE
 
 ![VS-Options](https://developers.primaverabss.com/wp-content/uploads/VSOptions-PRIMAVERA.jpg "Title")
 
+# **How to Use**
 To know more about how to configure you visual studio IDE 
 [read this post](https://developers.primaverabss.com/en/v10/resources/reference/article/how-to-configure-the-development-environment-to-automate-the-registration-of-extensions) or [Watch this video](https://www.youtube.com/watch?v=PoUx-MInaGw)
 
