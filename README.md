@@ -1,8 +1,7 @@
-
 # **Extensibility Essentials**
 ![](https://tfs.primaverabss.com/tfs/P.TEC.ERP/_apis/public/build/definitions/95d6c676-1f34-4111-8f21-6ba9154785f8/1325/badge)
 
-#### **Description**
+### **Description**
 A Visual Studio extension to easily create from the scratch and debug extensibility projects for PRIMAVERA ERP 10. Simply select the entity  you want to extend and the tool will add all the references and create the classes that you will need for the project.
 
 ### **Before Use**
