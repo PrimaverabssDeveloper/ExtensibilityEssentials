@@ -74,6 +74,15 @@ namespace Primavera.Extensibility.Wizard
                         configmg.Item("PostBuildEvent").Value = command;
 
                         outPutWindowmng.WriteMessage("The post-build command was added to the project.", OutputWindowMessagesType.Message);
+
+                        // Set start external program
+                        string erpEpp = string.Format("Erp100L{0}.exe", GeneralOptions.Instance.ProductLine == 0 ? "E" : "P");
+
+                        Configuration activeConfig = project.ConfigurationManager.ActiveConfiguration;
+                        activeConfig.Properties.Item("StartAction").Value = prjStartAction.prjStartActionProgram;
+                        activeConfig.Properties.Item("StartProgram").Value = Path.Combine(GeneralOptions.Instance.Path, erpEpp);
+
+                        outPutWindowmng.WriteMessage("The start external program was set.", OutputWindowMessagesType.Message);
                     }
                     else
                     {
