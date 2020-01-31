@@ -32,7 +32,7 @@ namespace Primavera.Extensibility.Wizard
             {
                 // Add the module reference..,
                 WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomForm");
-                WizardHelper.AddModuleReference(projectItem.ContainingProject, "DevExpress.Utils.v18.1");
+                //WizardHelper.AddModuleReference(projectItem.ContainingProject, "DevExpress.Utils.v18.1");
             }
             else
             {
