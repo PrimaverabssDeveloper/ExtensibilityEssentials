@@ -64,8 +64,16 @@
   <ItemGroup>
     <Compile Include="Helper\WizardHelper.cs" />
     <Compile Include="Helper\DependenciesDictionary.cs" />
+    <Compile Include="Presentation\WebApiUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\WebApiUI.Designer.cs">
+      <DependentUpon>WebApiUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRIWebApiExtensibility.cs" />
     <Compile Include="ProjectTypes\ExtensibilityType.cs" />
     <Compile Include="VSOptions\OptionsValidator.cs" />
+    <Compile Include="VSOptions\WebApiOptions.cs" />
     <Compile Include="VSOutputWindow\OutputWindowMessagesType.cs" />
     <Compile Include="VSOutputWindow\OutputWindowManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Modules.cs">
+    <Compile Include="Presentation\ExtensibilityUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Modules.Designer.cs">
-      <DependentUpon>Modules.cs</DependentUpon>
+    <Compile Include="Presentation\ExtensibilityUI.Designer.cs">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\MyTreeNode.cs" />
     <Compile Include="VSOptions\BaseOptionModel.cs" />
@@ -139,6 +147,10 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="ItemTemplates\VB\CustomTab.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="ItemTemplates\CSharp\PriWebApiControler.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -217,12 +229,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Presentation\WebApiUI.resx">
+      <DependentUpon>WebApiUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Modules.resx">
-      <DependentUpon>Modules.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\ExtensibilityUI.resx">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VSPackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
@@ -240,6 +255,13 @@
     <ProjectReference Include="..\Primavera.Extensibility.Template\Primavera.Extensibility.Template.csproj">
       <Project>{6f4deff7-dfdc-4f46-9428-d7c94d2117bf}</Project>
       <Name>Primavera.Extensibility.Template</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApiExtensibility\Primavera.WebApiExtensibility.csproj">
+      <Project>{1763F4FB-0E76-4FB7-9542-E546117C6174}</Project>
+      <Name>Primavera.WebApiExtensibility</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>

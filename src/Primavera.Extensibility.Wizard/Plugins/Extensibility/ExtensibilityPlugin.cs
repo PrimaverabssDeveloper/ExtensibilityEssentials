@@ -3,41 +3,56 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using EnvDTE;
-using Microsoft.VisualStudio.TemplateWizard;
 using Primavera.Extensibility.Options;
-using Primavera.Extensibility.Presentation;
+using Primavera.Extensibility.Wizard;
 using VSLangProj;
 
-namespace Primavera.Extensibility.Wizard
+namespace Primavera.Extensibility.Plugins
 {
-    public class PRIExtensibility : IWizard
+    internal class ExtensibilityPlugin: IWizardPlugin
     {
-        #region private properties
+        #region singleton
 
-        private MyTreeNode SelectedNode { get; set; }
-        private string Name { get; set; }
+        private static ExtensibilityPlugin _instance;
+
+        // Constructor is 'protected'
+
+        protected ExtensibilityPlugin()
+        {
+        }
+
+        public static ExtensibilityPlugin Instance()
+        {
+            // Uses lazy initialization.
+
+            // Note: this is not thread safe.
+
+            if (_instance == null)
+            {
+                _instance = new ExtensibilityPlugin();
+            }
+
+            return _instance;
+        }
 
         #endregion
 
-        #region private objects
+        #region properties
+        private MyTreeNode SelectedNode { get; set; }
+        private string Name { get; set; }
+        public List<MyTreeNode> selectedTypes { get; set; }
 
-        private List<MyTreeNode> selectedTypes = null;
+        #endregion
+
+        #region objects
         private EnvDTE.DTE envDTE;
         private ProjectItemsEvents projectItemsEvents;
-
         #endregion
 
         #region public methods
 
-        // This method is called before opening any item that   
-        // has the OpenInEditor attribute.  
-        public void BeforeOpeningFile(ProjectItem projectItem)
-        {
-        }
-
-        public void ProjectFinishedGenerating(Project project)
+        public void FinishedGenerating(Project project)
         {
             if (selectedTypes != null)
             {
@@ -94,7 +109,7 @@ namespace Primavera.Extensibility.Wizard
                         msg.Append("The command line utility does not exist on the folder.");
                         msg.Append(GeneralOptions.Instance.Path);
                         msg.Append("Download it from https://developers.primaverabss.com/v10/como-automatizar-registo-extensoes/ \n");
-                        
+
                         outPutWindowmng.WriteMessage(msg.ToString(), OutputWindowMessagesType.Error);
                     }
                 }
@@ -156,7 +171,7 @@ namespace Primavera.Extensibility.Wizard
 
         // This method is only called for item templates,  
         // not for project templates.  
-        public void ProjectItemFinishedGenerating(ProjectItem projectItem)
+        public void ItemsFinishedGenerating(ProjectItem projectItem)
         {
             foreach (MyTreeNode type in selectedTypes)
             {
@@ -177,36 +192,30 @@ namespace Primavera.Extensibility.Wizard
             }
         }
 
-        // This method is called after the project is created.  
-        public void RunFinished()
+        // This method is only called for item templates,  
+        // not for project templates.  
+        public void ItemFinishedGenerating(ProjectItem projectItem)
         {
-        }
 
-        public void RunStarted(object automationObject,
-            Dictionary<string, string> replacementsDictionary,
-            WizardRunKind runKind, object[] customParams)
-        {
-            using (ExtensibilityUI modulesForm = new ExtensibilityUI())
+            // Add the module reference..,
+            if (this.Name == "PriCustomForm.cs" || this.Name == "PriCustomForm.vb")
             {
-                if (modulesForm.ShowDialog() == DialogResult.OK)
-                {
-                    selectedTypes = modulesForm.SelectedTypes.ToList();
-                }
-                else
-                {
-                    throw new WizardCancelledException();
-                }
+                // Add the module reference..,
+                WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomForm");
             }
-            
+            else
+            {
+                WizardHelper.AddModuleReference(projectItem.ContainingProject, "Primavera.Extensibility.CustomCode");
+            }
         }
 
         // This method is only called for item templates,  
         // not for project templates.   
-        public bool ShouldAddProjectItem(string filePath)
+        public void AddProjectItem(string filePath)
         {
             this.Name = filePath;
-            return true;
         }
+
         #endregion
 
         #region private events
@@ -229,6 +238,7 @@ namespace Primavera.Extensibility.Wizard
                 File.WriteAllText(itemPath, readFile);
             }
         }
+
         #endregion
     }
 }

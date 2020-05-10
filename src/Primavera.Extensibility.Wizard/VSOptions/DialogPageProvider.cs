@@ -6,5 +6,7 @@
     internal class DialogPageProvider
     {
         public class General : OptionPage<GeneralOptions> { }
+
+        public class WebApi : OptionPage<WebApiOptions> { }
     }
 }

@@ -24,6 +24,20 @@ namespace Primavera.Extensibility
 
         #region Public methods
 
+        public static void AddApiBaseDependencies(Project project)
+        {
+            VSProject vsProj = (VSProject)project.Object;
+
+            for (int i = 0; i < DependenciesDictionary.WebApiBaseDependencies .Count; i++)
+            {
+                string result = DependenciesDictionary.WebApiBaseDependencies[DependenciesDictionary.WebApiBaseDependencies.Keys.ElementAt(i)];
+                result = result.Replace("XXX", MajorVersion);
+
+                vsProj.References.Add(GetFullPath(result, WebApiOptions.Instance.Path));
+                vsProj.References.Item(result).CopyLocal = false;
+            }
+        }
+
         public static void AddGenericReference(Project project)
         {
             VSProject vsProj = (VSProject)project.Object;
@@ -33,15 +47,16 @@ namespace Primavera.Extensibility
                 string result = DependenciesDictionary.BaseDependencies[DependenciesDictionary.BaseDependencies.Keys.ElementAt(i)];
                 result = result.Replace("XXX", MajorVersion);
 
-                vsProj.References.Add(GetFullPath(result));
+                vsProj.References.Add(GetFullPath(result, GeneralOptions.Instance.Path));
                 vsProj.References.Item(result).CopyLocal = false;
             }
         }
+
         public static void AddModuleReference(Project project, string assemblyName)
         {
             VSProject vsProj = (VSProject)project.Object;
  
-            vsProj.References.Add(GetFullPath(assemblyName));
+            vsProj.References.Add(GetFullPath(assemblyName, GeneralOptions.Instance.Path));
             vsProj.References.Item(assemblyName).CopyLocal = false;  
         }
 
@@ -67,10 +82,8 @@ namespace Primavera.Extensibility
 
         #region Private Methods
 
-        private static string GetFullPath(string assemblyName)
+        private static string GetFullPath(string assemblyName, string InstallFolder)
         {
-            string InstallFolder = GeneralOptions.Instance.Path;
-
             if (Directory.Exists(InstallFolder))
             {
                 return System.IO.Path.Combine(InstallFolder, assemblyName + ".dll");

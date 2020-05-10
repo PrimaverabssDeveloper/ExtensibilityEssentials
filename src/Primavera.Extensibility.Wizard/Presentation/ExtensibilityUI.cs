@@ -8,9 +8,9 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Primavera.Extensibility
+namespace Primavera.Extensibility.Presentation
 {
-    public partial class Modules : Form
+    public partial class ExtensibilityUI : Form
     {
         #region private variables
 
@@ -30,7 +30,7 @@ namespace Primavera.Extensibility
         #endregion
 
         #region  public methods
-        public Modules()
+        public ExtensibilityUI()
         {
             InitializeComponent();
 
