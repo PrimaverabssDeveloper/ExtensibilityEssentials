@@ -48,6 +48,17 @@ namespace Primavera.Extensibility
             }
         }
 
+        public static Dictionary<string, string> WebApiBaseDependencies
+        {
+            get
+            {
+                return new Dictionary<string, string>()
+                {
+                    { "DocumentExtendedEntities", "Primavera.WebAPI.Integration" }
+                };
+            }
+        }
+
         #endregion
     }
 }
