@@ -70,7 +70,7 @@
     <Compile Include="Presentation\WebApiUI.Designer.cs">
       <DependentUpon>WebApiUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="PRIWebApiExtensibility.cs" />
+    <Compile Include="Plugins\PRIWebApiExtensibility.cs" />
     <Compile Include="ProjectTypes\ExtensibilityType.cs" />
     <Compile Include="VSOptions\OptionsValidator.cs" />
     <Compile Include="VSOptions\WebApiOptions.cs" />
@@ -96,8 +96,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VSOptions\OptionsPackage.cs" />
-    <Compile Include="PRIExtensibilityEx.cs" />
-    <Compile Include="PRIExtensibility.cs" />
+    <Compile Include="Plugins\PRIExtensibilityEx.cs" />
+    <Compile Include="Plugins\PRIExtensibility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LicenseAgreement.txt">

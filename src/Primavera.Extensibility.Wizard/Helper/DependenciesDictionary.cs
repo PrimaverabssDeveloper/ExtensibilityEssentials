@@ -38,12 +38,26 @@ namespace Primavera.Extensibility
             {
                 return new Dictionary<string, string>()
                 {
+                    { "BasStdPlatBS", "StdPlatBSXXX" },
+                    { "BasStdBE", "StdBEXXX" },
+                    { "BaseErpBS", "ErpBSXXX" },
+                    { "ExtBusinessEntities", "Primavera.Extensibility.BusinessEntities" },
+                    { "ExtIntegration", "Primavera.Extensibility.Integration" },
+                    { "ExtAttributes", "Primavera.Extensibility.Attributes" },
+                    { "ApiDocumentExtendedEntities", "Primavera.WebAPI.Integration" }
+                };
+            }
+        }
+
+        public static Dictionary<string, string> ExtensibilityBaseDependencies
+        {
+            get
+            {
+                return new Dictionary<string, string>()
+                {
                     { "BusinessEntities", "Primavera.Extensibility.BusinessEntities" },
                     { "Integration", "Primavera.Extensibility.Integration" },
-                    { "Attributes", "Primavera.Extensibility.Attributes" },
-                    { "StdPlatBS", "StdPlatBSXXX" },
-                    { "StdBE", "StdBEXXX" },
-                    { "ErpBS", "ErpBSXXX" }
+                    { "Attributes", "Primavera.Extensibility.Attributes" }
                 };
             }
         }

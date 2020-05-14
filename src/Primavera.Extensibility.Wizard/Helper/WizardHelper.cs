@@ -1,5 +1,6 @@
 ﻿using EnvDTE;
 using Primavera.Extensibility.Options;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using VSLangProj;
@@ -24,31 +25,16 @@ namespace Primavera.Extensibility
 
         #region Public methods
 
-        public static void AddApiBaseDependencies(Project project)
+        public static void AddBaseReferences(Project project, string type, string filePath)
         {
             VSProject vsProj = (VSProject)project.Object;
 
-            for (int i = 0; i < DependenciesDictionary.WebApiBaseDependencies .Count; i++)
+            List<string> result = DependenciesDictionary.BaseDependencies.Where(el => el.Key.StartsWith(type)).Select(p => p.Value).ToList();
+
+            foreach(string item in result)
             {
-                string result = DependenciesDictionary.WebApiBaseDependencies[DependenciesDictionary.WebApiBaseDependencies.Keys.ElementAt(i)];
-                result = result.Replace("XXX", MajorVersion);
-
-                vsProj.References.Add(GetFullPath(result, WebApiOptions.Instance.Path));
-                vsProj.References.Item(result).CopyLocal = false;
-            }
-        }
-
-        public static void AddGenericReference(Project project)
-        {
-            VSProject vsProj = (VSProject)project.Object;
-
-            for (int i = 0; i < DependenciesDictionary.BaseDependencies.Count; i++)
-            {
-                string result = DependenciesDictionary.BaseDependencies[DependenciesDictionary.BaseDependencies.Keys.ElementAt(i)];
-                result = result.Replace("XXX", MajorVersion);
-
-                vsProj.References.Add(GetFullPath(result, GeneralOptions.Instance.Path));
-                vsProj.References.Item(result).CopyLocal = false;
+                vsProj.References.Add(GetFullPath(item.Replace("XXX", MajorVersion), filePath));
+                vsProj.References.Item(item.Replace("XXX", MajorVersion)).CopyLocal = false;
             }
         }
 
