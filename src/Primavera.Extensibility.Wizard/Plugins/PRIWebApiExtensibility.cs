@@ -78,7 +78,9 @@ namespace Primavera.Extensibility.Wizard
                 rootFolder.ProjectItems.AddFromTemplate(_itemPath, _controllerName + _fileExtension);
 
                 // Add generic references
-                WizardHelper.AddApiBaseDependencies(project);
+                //WizardHelper.AddApiBaseDependencies(project);
+                WizardHelper.AddBaseReferences(project, "Bas", GeneralOptions.Instance.Path);
+                WizardHelper.AddBaseReferences(project, "Api", WebApiOptions.Instance.Path);
 
                 // Add references to the select modules
                 foreach (TreeNode type in _selectedTypes)
