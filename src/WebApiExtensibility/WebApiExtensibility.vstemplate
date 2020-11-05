@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>WebApi Extensibility Project</Name>
+    <Name>WebApi Extensibility Project (C#)</Name>
     <Description>A project create to create WepApi extensions.</Description>
     <Icon>Primavera.Extensibility.png</Icon>
     <ProjectType>CSharp</ProjectType>
