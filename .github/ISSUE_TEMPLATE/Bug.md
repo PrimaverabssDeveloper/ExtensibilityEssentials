@@ -1,7 +1,13 @@
 ---
 name: '🐞 Bug '
-about: 'report a bug with an existing effect'
-title: '[BUG] What is wrong?'
+about: 'Report a bug with an existing effect'
+title: 'What is wrong?'
 ---
 
-### Describe the Issue
+### Describe the steps to simulate the Issue
+
+
+### The observed behavior
+
+
+### The expected behavior
