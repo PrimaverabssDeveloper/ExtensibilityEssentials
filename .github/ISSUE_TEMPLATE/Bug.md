@@ -1,5 +1,5 @@
 ---
-name: ':bug: Bug '
+name: :bug: 'Bug '
 about: 'Report a bug with an existing effect'
 title: 'What is wrong?'
 labels:
