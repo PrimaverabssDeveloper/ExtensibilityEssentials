@@ -44,7 +44,8 @@ namespace Primavera.Extensibility
                     { "ExtBusinessEntities", "Primavera.Extensibility.BusinessEntities" },
                     { "ExtIntegration", "Primavera.Extensibility.Integration" },
                     { "ExtAttributes", "Primavera.Extensibility.Attributes" },
-                    { "ApiDocumentExtendedEntities", "Primavera.WebAPI.Integration" }
+                    { "ApiDocumentExtendedEntities", "Primavera.WebAPI.Integration" },
+                    { "PlatformRuntime","Primavera.Platform.Runtime" }
                 };
             }
         }
