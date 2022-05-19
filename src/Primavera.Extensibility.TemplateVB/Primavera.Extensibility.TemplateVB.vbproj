@@ -21,7 +21,7 @@
     <RootNamespace>Primavera.Extensibility.TemplateVB</RootNamespace>
     <AssemblyName>Primavera.Extensibility.TemplateVB</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
