@@ -21,7 +21,7 @@ To know more about how to configure your visual studio IDE
 
 ### **Requirements**
 - PRIMAVERA ERP v10.0 (or higher).
-- Visual Studio 2017 and 2019
+- Visual Studio 2017, 2019 and 2022
 
 ### Contributing and Feedback
 Everyone is free to contribute to the repository.
