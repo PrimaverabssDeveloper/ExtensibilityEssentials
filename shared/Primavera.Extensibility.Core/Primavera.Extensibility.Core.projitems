@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d5c0743b-d741-479b-8a60-1bc05f341a4a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Primavera.Extensibility.Core</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\DependenciesDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helper\WizardHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PRIExtensibility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PRIExtensibilityEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Plugins\PRIWebApiExtensibility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.Designer.cs">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\MyTreeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\TabControlExtended.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\WebApiUI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\WebApiUI.Designer.cs">
+      <DependentUpon>WebApiUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectTypes\ExtensibilityType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\BaseOptionModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\DialogPageProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\GeneralOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\OptionPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\OptionsPackage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\OptionsValidator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOptions\WebApiOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOutputWindow\OutputWindowManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VSOutputWindow\OutputWindowMessagesType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.resx">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Presentation\WebApiUI.resx">
+      <DependentUpon>WebApiUI.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

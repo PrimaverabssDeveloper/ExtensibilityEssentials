@@ -1,0 +1,24 @@
+﻿<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Extensibility Project (VB)</Name>
+    <Description>A project for creating extensibility solutions to PRIMAVERA ERP 10.</Description>
+    <Icon>Primavera.Extensibility.png</Icon>
+    <ProjectType>VisualBasic</ProjectType>
+    <TemplateID>23995943-5588-4cba-bc09-1c31abf8a904</TemplateID>
+    <SortOrder>1000</SortOrder>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ExtensibilityProject</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <RequiredFrameworkVersion>4.7</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.vbproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="My Project\AssemblyInfo.vb">AssemblyInfo.vb</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>Primavera.Extensibility.Wizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=11cd844aca152173</Assembly>
+    <FullClassName>Primavera.Extensibility.Wizard.PRIExtensibility</FullClassName>
+  </WizardExtension>
+</VSTemplate>
