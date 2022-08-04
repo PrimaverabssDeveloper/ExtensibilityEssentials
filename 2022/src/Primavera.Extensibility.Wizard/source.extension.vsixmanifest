@@ -6,8 +6,8 @@
         <Description xml:space="preserve">The easiest way to set up extensibility projects for PRIMAVERA V10 with Visual Studio 2022.</Description>
         <MoreInfo>http://www.primaverabss.com</MoreInfo>
         <License>LicenseAgreement.txt</License>
-        <Icon>Resources\Primavera.V10.png</Icon>
-        <PreviewImage>Resources\Primavera.V10.png</PreviewImage>
+        <Icon>Resources\V101.png</Icon>
+        <PreviewImage>Resources\V101.png</PreviewImage>
         <Tags>PRIMAVERA</Tags>
     </Metadata>
     <Installation>
