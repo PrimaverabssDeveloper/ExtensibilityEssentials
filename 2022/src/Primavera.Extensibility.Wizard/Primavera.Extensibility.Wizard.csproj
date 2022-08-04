@@ -71,7 +71,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Primavera.V10.png" />
+    <Content Include="Resources\Primavera.V10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="app.config" />
     <Content Include="..\..\..\shared\SharedFiles\LicenseAgreement.txt">
       <Link>LicenseAgreement.txt</Link>
