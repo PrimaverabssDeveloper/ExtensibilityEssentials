@@ -12,6 +12,6 @@ namespace Primavera.Extensibility.Options
         [Category("WebAPI Settings")]
         [DisplayName("Installation Path")]
         [Description("PRIMAVERA WebAPI installation path.")]
-        public string Path { get; set; } = @"C:\Program Files (x86)\PRIMAVERA\SG100\APL\WebApi\bin";
+        public string Path { get; set; } = @"C:\Program Files\PRIMAVERA\SG100\APL\WebApi\bin";
     }
 }

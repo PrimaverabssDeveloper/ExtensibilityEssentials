@@ -12,7 +12,7 @@ namespace Primavera.Extensibility.Options
         [Category("ERP Settings")]
         [DisplayName("Installation Path")]
         [Description("PRIMAVERA installation path.")]
-        public string Path { get; set; } = @"C:\Program Files (x86)\PRIMAVERA\SG100\APL\";
+        public string Path { get; set; } = @"C:\Program Files\PRIMAVERA\SG100\APL\";
 
         [Category("ERP Settings")]
         [DisplayName("User Name")]
