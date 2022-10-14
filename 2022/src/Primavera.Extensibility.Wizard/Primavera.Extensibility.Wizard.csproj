@@ -71,6 +71,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\shared\SharedFiles\index.html">
+      <Link>index.html</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\..\shared\SharedFiles\stylesheet.css">
+      <Link>stylesheet.css</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\Primavera.V10.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -115,6 +123,9 @@
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="ItemTemplates\VB\PriClass.zip">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="CustomApp.config">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">
