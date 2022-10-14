@@ -97,7 +97,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Project Selector";
-            this.Load += new System.EventHandler(this.ExtensibilityUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

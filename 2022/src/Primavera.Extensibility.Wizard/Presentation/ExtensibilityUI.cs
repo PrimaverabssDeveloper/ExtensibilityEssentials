@@ -1,6 +1,5 @@
 ﻿using Primavera.Extensibility.Options;
 using Primavera.Extensibility.Wizard;
-using Primavera.Extensibility.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace Primavera.Extensibility.Presentation
 {
@@ -41,9 +39,11 @@ namespace Primavera.Extensibility.Presentation
             LoadTreeView(childNodes);
         }
 
-        private void LoadAssembly()
+        private async void LoadAssembly()
         {
-            string InstallFolder = GeneralOptions.Instance.Path;;
+            var options = await GeneralOptions.GetLiveInstanceAsync();
+
+            string InstallFolder = options.Path.ToString();
 
             if (!Directory.Exists(InstallFolder))
             {
@@ -156,32 +156,6 @@ namespace Primavera.Extensibility.Presentation
         #endregion
 
         #region private methods
-
-        /// <summary>
-        /// When a new version is released them show the html file.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ExtensibilityUI_Load(object sender, EventArgs e)
-        {
-            string appDirectory = System.IO.Path.GetDirectoryName(
-                System.Reflection.Assembly.GetExecutingAssembly().Location);
-
-            string indexHtml = Path.Combine(appDirectory, "index.html");
-
-            VsixManifest vsixManifest = new VsixManifest();
-            decimal version = vsixManifest.GetVsixManifestVersion();
-
-            CustomAppSettings settings = new CustomAppSettings();
-            decimal lastManifestVersion = decimal.Parse(settings.ReadSetting("manifestLastVersion"), System.Globalization.CultureInfo.InvariantCulture);
-
-            if (lastManifestVersion < version)
-            {
-                System.Diagnostics.Process.Start(indexHtml);
-                settings.WriteSetting("manifestLastVersion", version.ToString());
-            }
-
-        }
 
         // Updates all child tree nodes recursively.
         private void CheckAllChildNodes(TreeNode treeNode, bool nodeChecked)
