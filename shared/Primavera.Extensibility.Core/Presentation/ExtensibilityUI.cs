@@ -164,21 +164,28 @@ namespace Primavera.Extensibility.Presentation
         /// <param name="e"></param>
         private void ExtensibilityUI_Load(object sender, EventArgs e)
         {
-            // Get the index html file path.
-            string indexHtml = GetIndexHtml_PathFile();
-
-            // Get from the manifest the vsix version.
-            VsixManifest vsixManifest = new VsixManifest();
-            decimal version = vsixManifest.GetVsixManifestVersion();
-
-            // Get from the config file the last vsix version.
-            CustomAppSettings settings = new CustomAppSettings();
-            decimal lastManifestVersion = decimal.Parse(settings.ReadSetting("manifestLastVersion"), System.Globalization.CultureInfo.InvariantCulture);
-
-            if (lastManifestVersion < version)
+            try
             {
-                System.Diagnostics.Process.Start(indexHtml);
-                settings.WriteSetting("manifestLastVersion", version.ToString());
+                // Get the index html file path.
+                string indexHtml = GetIndexHtml_PathFile();
+
+                // Get from the manifest the vsix version.
+                VsixManifest vsixManifest = new VsixManifest();
+                decimal version = vsixManifest.GetVsixManifestVersion();
+
+                // Get from the config file the last vsix version.
+                CustomAppSettings settings = new CustomAppSettings();
+                decimal lastManifestVersion = decimal.Parse(settings.ReadSetting("manifestLastVersion"), System.Globalization.CultureInfo.InvariantCulture);
+
+                if (lastManifestVersion < version)
+                {
+                    System.Diagnostics.Process.Start(indexHtml);
+                    settings.WriteSetting("manifestLastVersion", version.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
