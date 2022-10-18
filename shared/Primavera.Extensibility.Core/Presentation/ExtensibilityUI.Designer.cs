@@ -32,6 +32,7 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_ok = new System.Windows.Forms.Button();
             this.txtfilter = new System.Windows.Forms.TextBox();
+            this.lnkNews = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // trw
@@ -79,12 +80,24 @@
             this.txtfilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfilter_KeyPress);
             this.txtfilter.Leave += new System.EventHandler(this.txtfilter_Leave);
             // 
+            // lnkNews
+            // 
+            this.lnkNews.AutoSize = true;
+            this.lnkNews.Location = new System.Drawing.Point(12, 451);
+            this.lnkNews.Name = "lnkNews";
+            this.lnkNews.Size = new System.Drawing.Size(267, 13);
+            this.lnkNews.TabIndex = 13;
+            this.lnkNews.TabStop = true;
+            this.lnkNews.Text = "View Latest News From Developer Network Community";
+            this.lnkNews.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNews_LinkClicked);
+            // 
             // ExtensibilityUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(659, 475);
+            this.Controls.Add(this.lnkNews);
             this.Controls.Add(this.txtfilter);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_ok);
@@ -108,5 +121,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.TextBox txtfilter;
+        private System.Windows.Forms.LinkLabel lnkNews;
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="0A8120F6-CC06-4CFA-91FE-271889731126" Version="1.0" Language="en-US" Publisher="PRIMAVERA BSS" />
+        <Identity Id="0A8120F6-CC06-4CFA-91FE-271889731126" Version="@@VERSION@@" Language="en-US" Publisher="PRIMAVERA BSS" />
         <DisplayName>PRIMAVERA Extensibility Essentials</DisplayName>
         <Description xml:space="preserve">The easiest way to set up extensibility projects for PRIMAVERA ERP 10 with Visual Studio 2017 and 2019.</Description>
         <MoreInfo>http://www.primaverabss.com</MoreInfo>

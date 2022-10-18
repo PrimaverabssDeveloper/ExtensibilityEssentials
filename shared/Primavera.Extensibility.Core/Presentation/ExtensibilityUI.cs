@@ -164,14 +164,14 @@ namespace Primavera.Extensibility.Presentation
         /// <param name="e"></param>
         private void ExtensibilityUI_Load(object sender, EventArgs e)
         {
-            string appDirectory = System.IO.Path.GetDirectoryName(
-                System.Reflection.Assembly.GetExecutingAssembly().Location);
+            // Get the index html file path.
+            string indexHtml = GetIndexHtml_PathFile();
 
-            string indexHtml = Path.Combine(appDirectory, "index.html");
-
+            // Get from the manifest the vsix version.
             VsixManifest vsixManifest = new VsixManifest();
             decimal version = vsixManifest.GetVsixManifestVersion();
 
+            // Get from the config file the last vsix version.
             CustomAppSettings settings = new CustomAppSettings();
             decimal lastManifestVersion = decimal.Parse(settings.ReadSetting("manifestLastVersion"), System.Globalization.CultureInfo.InvariantCulture);
 
@@ -195,6 +195,14 @@ namespace Primavera.Extensibility.Presentation
                     this.CheckAllChildNodes(node, nodeChecked);
                 }
             }
+        }
+
+        private string GetIndexHtml_PathFile()
+        {
+            string appDirectory = System.IO.Path.GetDirectoryName(
+                System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+             return Path.Combine(appDirectory, "index.html");
         }
 
         private void FilterNodes()
@@ -226,6 +234,15 @@ namespace Primavera.Extensibility.Presentation
         #endregion
 
         #region events
+
+        private void lnkNews_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Get the index html file path.
+            string indexHtml = GetIndexHtml_PathFile();
+
+            // Open file.
+            System.Diagnostics.Process.Start(indexHtml);
+        }
 
         private void txtfilter_Leave(object sender, EventArgs e)
         {

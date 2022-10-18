@@ -17,7 +17,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\PRIExtensibilityEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Plugins\PRIWebApiExtensibility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.designer.cs">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\MyTreeNode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\TabControlExtended.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presentation\WebApiUI.cs" />
@@ -36,7 +38,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)VSOutputWindow\OutputWindowMessagesType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Presentation\ExtensibilityUI.resx">
+      <DependentUpon>ExtensibilityUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Presentation\WebApiUI.resx">
       <DependentUpon>WebApiUI.cs</DependentUpon>
     </EmbeddedResource>
