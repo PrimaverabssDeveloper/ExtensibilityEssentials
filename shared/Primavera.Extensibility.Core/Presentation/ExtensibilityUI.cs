@@ -185,9 +185,6 @@ namespace Primavera.Extensibility.Presentation
             }
             catch (Exception ex)
             {
-                OutputWindowManager outPutWindowmng = new OutputWindowManager();
-                outPutWindowmng.WriteMessage(ex.InnerException.ToString());
-
                 MessageBox.Show(ex.Message);
             }
 
@@ -213,10 +210,7 @@ namespace Primavera.Extensibility.Presentation
             {
                 string appDirectory = System.IO.Path.GetDirectoryName(
                     System.Reflection.Assembly.GetExecutingAssembly().Location);
-
-                OutputWindowManager outPutWindowmng = new OutputWindowManager();
-                outPutWindowmng.WriteMessage(appDirectory);
-
+                MessageBox.Show(appDirectory);
                 return Path.Combine(appDirectory, "index.html");
             }
             catch (Exception ex)
