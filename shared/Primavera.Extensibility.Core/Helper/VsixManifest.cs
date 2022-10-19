@@ -17,7 +17,7 @@ namespace Primavera.Extensibility.Core.Helper
             _manifestPath = System.IO.Path.Combine(manifestPath, "extension.vsixmanifest");
         }
 
-        public decimal GetVsixManifestVersion()
+        public string GetVsixManifestVersion()
         {
             try
             {
@@ -25,13 +25,13 @@ namespace Primavera.Extensibility.Core.Helper
                 doc.Load(_manifestPath);
 
                 if (doc.DocumentElement == null || doc.DocumentElement.Name != "PackageManifest")
-                    return 0;
+                    return null;
                 else
                 {
                     var metaData = doc.DocumentElement.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Metadata");
                     var identity = metaData.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Identity");
 
-                    return decimal.Parse(identity.GetAttribute("Version"), CultureInfo.InvariantCulture);
+                    return identity.GetAttribute("Version");
                 }
             }
             catch(Exception ex)

@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Globalization;
 
 namespace Primavera.Extensibility.Presentation
 {
@@ -171,16 +172,22 @@ namespace Primavera.Extensibility.Presentation
 
                 // Get from the manifest the vsix version.
                 VsixManifest vsixManifest = new VsixManifest();
-                decimal version = vsixManifest.GetVsixManifestVersion();
+                string manifestVersion = vsixManifest.GetVsixManifestVersion();
 
                 // Get from the config file the last vsix version.
                 CustomAppSettings settings = new CustomAppSettings();
-                decimal lastManifestVersion = decimal.Parse(settings.ReadSetting("manifestLastVersion"), System.Globalization.CultureInfo.InvariantCulture);
+                decimal lastManifestVersion = decimal.Parse(
+                    settings.ReadSetting("manifestLastVersion").Replace(".",""), 
+                    CultureInfo.InvariantCulture);
 
-                if (lastManifestVersion < version)
+                decimal currentManifestVersion = decimal.Parse(
+                    manifestVersion.Replace(".",""),
+                    CultureInfo.InvariantCulture);
+
+                if (lastManifestVersion < currentManifestVersion)
                 {
                     System.Diagnostics.Process.Start(indexHtml);
-                    settings.WriteSetting("manifestLastVersion", version.ToString());
+                    settings.WriteSetting("manifestLastVersion", manifestVersion.ToString());
                 }
             }
             catch (Exception ex)
@@ -210,7 +217,7 @@ namespace Primavera.Extensibility.Presentation
             {
                 string appDirectory = System.IO.Path.GetDirectoryName(
                     System.Reflection.Assembly.GetExecutingAssembly().Location);
-                MessageBox.Show(appDirectory);
+
                 return Path.Combine(appDirectory, "index.html");
             }
             catch (Exception ex)
