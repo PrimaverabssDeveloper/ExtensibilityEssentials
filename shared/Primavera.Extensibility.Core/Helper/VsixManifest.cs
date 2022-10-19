@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Xml;
 
@@ -18,18 +19,26 @@ namespace Primavera.Extensibility.Core.Helper
 
         public decimal GetVsixManifestVersion()
         {
-            var doc = new XmlDocument();
-            doc.Load(_manifestPath);
-
-            if (doc.DocumentElement == null || doc.DocumentElement.Name != "PackageManifest")
-                return 0;
-            else
+            try
             {
-                var metaData = doc.DocumentElement.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Metadata");
-                var identity = metaData.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Identity");
+                var doc = new XmlDocument();
+                doc.Load(_manifestPath);
 
-                 return decimal.Parse(identity.GetAttribute("Version"), CultureInfo.InvariantCulture);
+                if (doc.DocumentElement == null || doc.DocumentElement.Name != "PackageManifest")
+                    return 0;
+                else
+                {
+                    var metaData = doc.DocumentElement.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Metadata");
+                    var identity = metaData.ChildNodes.Cast<XmlElement>().First(x => x.Name == "Identity");
+
+                    return decimal.Parse(identity.GetAttribute("Version"), CultureInfo.InvariantCulture);
+                }
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

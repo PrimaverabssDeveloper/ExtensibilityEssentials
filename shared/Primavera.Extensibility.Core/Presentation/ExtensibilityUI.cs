@@ -206,10 +206,20 @@ namespace Primavera.Extensibility.Presentation
 
         private string GetIndexHtml_PathFile()
         {
-            string appDirectory = System.IO.Path.GetDirectoryName(
-                System.Reflection.Assembly.GetExecutingAssembly().Location);
+            try
+            {
+                string appDirectory = System.IO.Path.GetDirectoryName(
+                    System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-             return Path.Combine(appDirectory, "index.html");
+                OutputWindowManager outPutWindowmng = new OutputWindowManager();
+                outPutWindowmng.WriteMessage(appDirectory);
+
+                return Path.Combine(appDirectory, "index.html");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void FilterNodes()
