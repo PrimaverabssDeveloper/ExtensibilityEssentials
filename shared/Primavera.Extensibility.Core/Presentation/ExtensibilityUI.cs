@@ -185,6 +185,9 @@ namespace Primavera.Extensibility.Presentation
             }
             catch (Exception ex)
             {
+                OutputWindowManager outPutWindowmng = new OutputWindowManager();
+                outPutWindowmng.WriteMessage(ex.InnerException.ToString());
+
                 MessageBox.Show(ex.Message);
             }
 
