@@ -168,26 +168,33 @@ namespace Primavera.Extensibility.Presentation
             try
             {
                 // Get the index html file path.
-                string indexHtml = GetIndexHtml_PathFile();
+                string indexHtml = GetIndexHtml_PathFile(); 
 
-                // Get from the manifest the vsix version.
-                VsixManifest vsixManifest = new VsixManifest();
-                string manifestVersion = vsixManifest.GetVsixManifestVersion();
-
-                // Get from the config file the last vsix version.
-                CustomAppSettings settings = new CustomAppSettings();
-                decimal lastManifestVersion = decimal.Parse(
-                    settings.ReadSetting("manifestLastVersion").Replace(".",""), 
-                    CultureInfo.InvariantCulture);
-
-                decimal currentManifestVersion = decimal.Parse(
-                    manifestVersion.Replace(".",""),
-                    CultureInfo.InvariantCulture);
-
-                if (lastManifestVersion < currentManifestVersion)
+                if (indexHtml == null)
                 {
-                    System.Diagnostics.Process.Start(indexHtml);
-                    settings.WriteSetting("manifestLastVersion", manifestVersion.ToString());
+                    throw new ArgumentNullException("The file index.html was not found.");        
+                }
+                else
+                {
+                    // Get from the manifest the vsix version.
+                    VsixManifest vsixManifest = new VsixManifest();
+                    string manifestVersion = vsixManifest.GetVsixManifestVersion();
+
+                    // Get from the config file the last vsix version.
+                    CustomAppSettings settings = new CustomAppSettings();
+                    decimal lastManifestVersion = decimal.Parse(
+                        settings.ReadSetting("manifestLastVersion").Replace(".", ""),
+                        CultureInfo.InvariantCulture);
+
+                    decimal currentManifestVersion = decimal.Parse(
+                        manifestVersion.Replace(".", ""),
+                        CultureInfo.InvariantCulture);
+
+                    if (lastManifestVersion < currentManifestVersion)
+                    {
+                        System.Diagnostics.Process.Start(indexHtml);
+                        settings.WriteSetting("manifestLastVersion", manifestVersion.ToString());
+                    }
                 }
             }
             catch (Exception ex)
